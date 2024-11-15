@@ -1,0 +1,22 @@
+{
+    "__name__" : "WikimediaStreaming",
+    "__version__" : "1",
+
+    "LOGGING_LEVEL": "INFO",
+    "LOGGING_CONSOLE": true,
+
+    "kafka_config" :{
+        "bootstrap_servers": "localhost:9092",
+        "acks" : "all",
+
+        "api_topic" : "api_data_topic",
+        "batch_size" : 15
+    },
+
+    "source" : {
+        "wikimedia_url" : "https://stream.wikimedia.org/v2/stream/recentchange",
+        "max_retries" : 5
+
+    }
+
+}
