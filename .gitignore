@@ -3,5 +3,8 @@ StructuredStreaming/project/*
 StructuredStreaming/target/*
 src/StructuredStreaming/consumers.ipynb
 src/KafkaProducer/producer.ipynb
+src/KafkaProducer/__*
+src/StructuredStreaming/__*
+utils/__*
 
 logs/*

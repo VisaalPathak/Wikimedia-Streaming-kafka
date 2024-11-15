@@ -14,10 +14,12 @@ In this project, I used wikimedia streaming api as streaming data source.
 
 
 ## Setup Instruction
-1. Clone the repository and run docker-compose.yml file.(docker compose up)
-2. Create a topic in Kafka using the following command: kafka-topics.sh --bootstrap-server localhost:9092 --create --topic wikimedia_data_topic
-3. Run Kafka producer file as : python src/KafkaProducer/main.py
-4. Run Spark Structured Streaming as : spark-submit --packages org.apache.spark:spark-sql-kafka-0-10_2.12:3.3.0 src/StructuredStreaming/main.py
+1. Clone the repository and run docker-compose.yml file.(`docker compose up`)
+2. Create a topic in Kafka using the following command: `kafka-topics.sh --bootstrap-server localhost:9092 --create --topic wikimedia_data_topic`
+3. Run Kafka producer file as : `python src/KafkaProducer/main.py`
+4. Run Spark Structured Streaming as : `spark-submit --packages org.apache.spark:spark-sql-kafka-0-10_2.12:3.3.0 src/StructuredStreaming/main.py`
+5. Run Streaming using delta-table as sink : `spark-submit --packages org.apache.spark:spark-sql-kafka-0-10_2.12:3.3.0,io.delta:delta-core_2.12:2.1.0 main.py`
+
 
 
 

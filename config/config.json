@@ -20,7 +20,18 @@
         "app_name" : "kafka-streaming",
         "spark_sql_kafka" : "org.apache.spark:spark-sql-kafka-0-10_2.12:3.3.0",
         "maxOffsetsPerTrigger" : 200,
-        "startingTime" : 1 
+        "startingTime" : 1,
+        "writeData" :["delta-table"],
+
+        "mysql_destination" : {
+            "driverName": "jdbc:mysql",
+            "host" : "localhost",  
+            "port" : 3306,
+            "user" : "root",
+            "password" : "****",
+            "database" : "wikimedia",
+            "table" : "streaming_data_raw"
+        }
 
     }
 
