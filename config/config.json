@@ -8,14 +8,19 @@
     "kafka_config" :{
         "bootstrap_servers": "localhost:9092",
         "acks" : "all",
-
-        "api_topic" : "api_data_topic",
+        "api_topic" : "wikimedia_data_topic",
         "batch_size" : 15
     },
 
     "source" : {
         "wikimedia_url" : "https://stream.wikimedia.org/v2/stream/recentchange",
         "max_retries" : 5
+    },
+    "streaming":{
+        "app_name" : "kafka-streaming",
+        "spark_sql_kafka" : "org.apache.spark:spark-sql-kafka-0-10_2.12:3.3.0",
+        "maxOffsetsPerTrigger" : 200,
+        "startingTime" : 1 
 
     }
 
