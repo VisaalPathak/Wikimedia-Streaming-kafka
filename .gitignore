@@ -6,5 +6,6 @@ src/KafkaProducer/producer.ipynb
 src/KafkaProducer/__*
 src/StructuredStreaming/__*
 utils/__*
-
+src/StructuredStreaming/metastore_db
+src/StructuredStreaming/*.log
 logs/*
