@@ -1,0 +1,7 @@
+StructuredStreaming/.idea
+StructuredStreaming/project/*
+StructuredStreaming/target/*
+src/StructuredStreaming/consumers.ipynb
+src/KafkaProducer/producer.ipynb
+
+logs/*
