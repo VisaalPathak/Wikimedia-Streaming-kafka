@@ -45,13 +45,14 @@ def main():
         .start()
         
     if "delta-table" in writeData:
+        logger.info(f"delta-table creating")
         query = writeDataDelta(df=df,base_data_dir=root_dir,topic_name=topic_name)
-        
+        logger.info(f"delta-table created")
     else:
-            query = (df.writeStream 
-            .outputMode("append") 
-            .format("console") 
-            .start())
+        query = (df.writeStream 
+        .outputMode("append") 
+        .format("console") 
+        .start())
 
     # Await termination to keep the streaming running
     query.awaitTermination()

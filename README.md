@@ -19,7 +19,7 @@ In this project, I used wikimedia streaming api as streaming data source.
 3. Run Kafka producer file as : `python src/KafkaProducer/main.py`
 4. Run Spark Structured Streaming as : `spark-submit --packages org.apache.spark:spark-sql-kafka-0-10_2.12:3.3.0 src/StructuredStreaming/main.py`
 5. Run Streaming using delta-table as sink : `spark-submit --packages org.apache.spark:spark-sql-kafka-0-10_2.12:3.3.0,io.delta:delta-core_2.12:2.1.0 main.py`
-
+6. Checking if producer is producing data : `sudo docker exec -it 281b46827836 /usr/bin/kafka-console-consumer --bootstrap-server localhost:9092 --topic wikimedia_data_topic` (replace 281b46827836 with your container_id)
 
 
 

@@ -43,9 +43,9 @@ def start_spark(app_name='my_spark_app', master='local[*]', jar_packages=[],
     spark_jars_packages = ','.join(list(jar_packages))
     spark_builder.config('spark.jars.packages', spark_jars_packages)
 
-    if "delte-table" in write_data:
-        spark_builder.config("spark.sql.extensions", "io.delta.sql.DeltaSparkSessionExtension")
-        spark_builder.config("spark.sql.catalog.spark_catalog", "org.apache.spark.sql.delta.catalog.DeltaCatalog")
+    # if "delte-table" in write_data:
+    spark_builder.config("spark.sql.extensions", "io.delta.sql.DeltaSparkSessionExtension")
+    spark_builder.config("spark.sql.catalog.spark_catalog", "org.apache.spark.sql.delta.catalog.DeltaCatalog")
 
     
     spark_files = ','.join(list(files))

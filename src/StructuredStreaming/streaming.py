@@ -30,10 +30,11 @@ def defineSchema():
 
 def dataExtraction(df):
     df = df.withColumn("data", F.from_json(F.col("value_clean"), defineSchema()))
-    df_parsed = (df.select("data.schema", "data.meta.uri", 
-                                "data.meta.request_id","data.meta.id","data.meta.dt","data.meta.domain","data.meta.stream",
-                                "data.id","data.type","data.namespace","data.title","data.user","data.bot","data.minor","data.pantrolled","data.length.old","data.length.new",
-                                "data.revision.old","data.revision.new","data.server_name","data.wiki"
-                                ))
+    df_parsed = (df.selectExpr("data.schema", "data.meta.uri", 
+                              "data.meta.request_id","data.meta.id as meta_id","data.meta.dt","data.meta.domain","data.meta.stream",
+                              "data.id","data.type","data.namespace","data.title","data.user","data.bot","data.minor","data.pantrolled","data.length.old as length_old","data.length.new length_new",
+                              "data.revision.old as revision_old","data.revision.new revision_new","data.server_name","data.wiki"
+                              
+                              ))
     return df_parsed
         
