@@ -22,16 +22,16 @@
         "delta_core" : "rg.apache.spark:io.delta:delta-core_2.12:2.1.0",
         "maxOffsetsPerTrigger" : 200,
         "startingTime" : 1,
-        "writeData" :["delta-table"],
+        "writeData" :["mysql","delta-table"],
 
         "mysql_destination" : {
             "driverName": "jdbc:mysql",
             "host" : "localhost",  
             "port" : 3306,
             "user" : "root",
-            "password" : "****",
-            "database" : "wikimedia",
-            "table" : "streaming_data_raw"
+            "password" : "**",
+            "database" : "rw_wikimedia",
+            "table" : "wikimedia_data"
         }
 
     }

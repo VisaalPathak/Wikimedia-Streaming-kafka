@@ -10,3 +10,8 @@ src/StructuredStreaming/metastore_db
 src/StructuredStreaming/*.log
 src/StructuredStreaming/spark-warehouse/*
 logs/*
+checkpoint/*
+metastore_db/*
+spark-warehouse/*
+derby.log
+chekpoint/wikimedia_data_topic/*

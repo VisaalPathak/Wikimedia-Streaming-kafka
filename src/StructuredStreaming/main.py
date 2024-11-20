@@ -22,9 +22,9 @@ topic_name = var["kafka_config"]["api_topic"]
 writeData = var["streaming"]["writeData"]
 
 def main():
-    logger.info(f"spark starting")
+    logger.info(f"spark281b46827836 starting")
 
-    spark = start_spark(app_name=app_name)
+    spark = start_spark(app_name=app_name,home_path=root_dir)
     logger.info(f"spark started")
     data = loadKafkaTopic(topic=topic_name,spark=spark,maxOffsetsPerTrigger=maxOffsetsPerTrigger,startingTime=startingTime)
     logger.info(f"data successfully loaded from kafka topic {topic_name}")
@@ -41,9 +41,11 @@ def main():
     if  "mysql" in writeData:
         query = df.writeStream \
         .foreachBatch(writeDataSQL) \
+        .option("checkpointLocation", f"{root_dir}/checkpoint/mysql_{topic_name}") \
         .outputMode("append") \
         .start()
-        
+    logger.info(f"mysql table inserted")
+     
     if "delta-table" in writeData:
         logger.info(f"delta-table creating")
         query = writeDataDelta(df=df,base_data_dir=root_dir,topic_name=topic_name)

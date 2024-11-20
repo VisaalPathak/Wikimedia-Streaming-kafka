@@ -27,17 +27,18 @@ def writeDataSQL(batch_df,batch_id):
     (batch_df.write \
     .format("jdbc") \
     .option("driver","com.mysql.cj.jdbc.Driver") \
-    .option("url", f"{driver}://{host}:{port}/{table}") \
-    .option("dbtable", database) \
+    .option("url", f"{driver}://{host}:{port}/{database}?useSSL=false")  \
+    .option("dbtable", table) \
     .option("user", user) \
     .option("password", password) \
-    .option("mode","append") \
+    .mode("append") \
     .save())
+    
 
 def writeDataDelta(df,base_data_dir,topic_name):
     return (df.writeStream
                     .format("delta")
-                    .option("checkpointLocation", f"{base_data_dir}/chekpoint/{topic_name}")
+                    .option("checkpointLocation", f"{base_data_dir}/checkpoint/{topic_name}")
                     .outputMode("append")
                     .toTable(topic_name)
         )

@@ -12,7 +12,7 @@ var = Variables()
 write_data = var["streaming"]["writeData"]
 
 
-def start_spark(app_name='my_spark_app', master='local[*]', jar_packages=[],
+def start_spark(app_name='my_spark_app', master='local[*]',home_path='', jar_packages=[],
                 files=[]):
     """Start Spark session, get Spark logger and load config files.
 
