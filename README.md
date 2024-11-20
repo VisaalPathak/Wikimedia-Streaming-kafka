@@ -2,7 +2,8 @@
 Real-time data streaming enables you to analyze and process data in real time instead of waiting hours, days, or weeks to get answers. 
 In this project, I used wikimedia streaming api as streaming data source.
 
-## Architecture design for real time streaming
+## Architecture design for real time streaming wikimedia
+![Diagram](design/architecture_realtime_streaming_wikimedia.png)
 
 
 ## Technology Used
