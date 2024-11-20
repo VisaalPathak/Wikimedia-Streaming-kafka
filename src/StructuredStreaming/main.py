@@ -28,7 +28,6 @@ def main():
     logger.info(f"spark started")
     data = loadKafkaTopic(topic=topic_name,spark=spark,maxOffsetsPerTrigger=maxOffsetsPerTrigger,startingTime=startingTime)
     logger.info(f"data successfully loaded from kafka topic {topic_name}")
-    # logger.info(data.show())
     
     df = dataCleaning(df=data)
     

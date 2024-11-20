@@ -1,9 +1,9 @@
 CREATE DATABASE IF NOT EXISTS rw_wikimedia;
 USE rw_wikimedia;
 
-DROP TABLE IF EXISTS wikimedia_data1;
+DROP TABLE IF EXISTS wikimedia_data;
 
-CREATE TABLE `wikimedia_data1` (
+CREATE TABLE `wikimedia_data` (
   `schema` varchar(200) DEFAULT NULL,
   `uri` varchar(1000) DEFAULT NULL, 
   `request_id` varchar(200),

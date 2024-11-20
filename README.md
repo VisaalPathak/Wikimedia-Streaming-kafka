@@ -24,8 +24,14 @@ In this project, I used wikimedia streaming api as streaming data source.
     docker compose up
 ```
 2. Change the mysql_destination configs present in `config/config.json` file
+3. Create and activate virtual environment as 
+``` bash
+virtualenv .env
+source .env/bin/activate
+pip install -r lib/requirements.txt
+```
 
-2. Create a topic in Kafka using following command: 
+3. Create a topic in Kafka using following command(optional): 
 ```bash
     kafka-topics.sh --bootstrap-server localhost:9092 --create --topic wikimedia_data_topic
 ```
@@ -37,7 +43,8 @@ In this project, I used wikimedia streaming api as streaming data source.
 ``` bash
     spark-submit --packages org.apache.spark:spark-sql-kafka-0-10_2.12:3.3.0 src/StructuredStreaming/main.py
 ```
-5. If mysql-connector-java -8.0.11.jar file is inside virtualenv then run application as:
+5. Copy mysql-connector-java -8.0.11.jar file present in jars/ folder to virtualenv(.env/lib/python3.10/site-packages/pyspark/jars/
+) then run application as:
 ``` bash
     spark-submit --packages io.delta:delta-spark_2.12:3.2.0,org.apache.spark:spark-sql-kafka-0-10_2.12:3.5.3 main.py
 ``` 
@@ -48,7 +55,7 @@ otherwise
 replace full_path with your path as : /home/name/... 
 
 
-6. Checking if producer is producing data: 
+6. Check if producer is producing data: 
 ``` bash
     sudo docker exec -it 281b46827836 /usr/bin/kafka-console-consumer --bootstrap-server localhost:9092 --topic wikimedia_data_topic
 ```
