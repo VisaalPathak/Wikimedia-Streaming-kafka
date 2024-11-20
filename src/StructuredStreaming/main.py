@@ -36,14 +36,15 @@ def main():
     
     logger.info("Writing Data to sink")
     
-    
+    # "writeData" :["mysql","delta-table"],
+
     if  "mysql" in writeData:
         query = df.writeStream \
         .foreachBatch(writeDataSQL) \
         .option("checkpointLocation", f"{root_dir}/checkpoint/mysql_{topic_name}") \
         .outputMode("append") \
         .start()
-    logger.info(f"mysql table inserted")
+        logger.info(f"mysql table inserted")
      
     if "delta-table" in writeData:
         logger.info(f"delta-table creating")
